@@ -9,8 +9,8 @@ using Storage.Data;
 namespace Storage.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    [Migration("20210303155010_Namn")]
-    partial class Namn
+    [Migration("20210308173421_new3")]
+    partial class new3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,7 @@ namespace Storage.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Count")
@@ -37,7 +38,9 @@ namespace Storage.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");

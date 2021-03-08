@@ -13,11 +13,7 @@ namespace Storage.Data
             : base(options)
         {
         }
+        public DbSet<Product> Product { get; set; }
 
-        public DbSet<Storage.Models.Product> Product { get; set; }
-
-        public DbSet<Storage.Models.ProductViewModel> ProductViewModel { get; set; }
-
-       
     }
 }

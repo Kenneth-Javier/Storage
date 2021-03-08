@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Storage.Models
+namespace Storage.Models.ViewModels
 {
     public class ProductViewModel
     {
@@ -15,6 +15,8 @@ namespace Storage.Models
         public int Price { get; set; }
 
         public int Count { get; set; }
+
+        //public DateTime orderDate { get; set; }
 
         [Display(Name ="Inventory Value")]
         [DisplayFormat(DataFormatString = "{0:C}")]

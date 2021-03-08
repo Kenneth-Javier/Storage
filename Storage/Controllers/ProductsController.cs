@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Storage.Data;
 using Storage.Models;
+using Storage.Models.ViewModels;
 
 namespace Storage.Controllers
 {
@@ -36,7 +37,7 @@ namespace Storage.Controllers
                 Count = p.Count,
                 InventoryValue = p.Price * p.Count
             });
-            return View("Index",await model.ToListAsync());
+            return View(nameof(Index),await model.ToListAsync());
         }
 
         // GET: Products/Details/5
@@ -68,7 +69,7 @@ namespace Storage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Category,Shelf,Count,Description")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,OrderDate,Category,Shelf,Count,Description")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +101,7 @@ namespace Storage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Category,Shelf,Count,Description")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,OrderDate,Category,Shelf,Count,Description")] Product product)
         {
             if (id != product.Id)
             {

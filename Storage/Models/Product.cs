@@ -19,13 +19,14 @@ namespace Storage.Models
         public int Price { get; set; }
 
         [Display(Name ="Order Date")]
-        DateTime DateTime { get; set; }
+        public DateTime DateTime { get; set; }
 
         [Required(AllowEmptyStrings = false)]
         public string Category { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "-")]
         public string Shelf { get; set; }
+
         public int Count { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "-")]
