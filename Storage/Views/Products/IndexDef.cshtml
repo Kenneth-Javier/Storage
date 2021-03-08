@@ -1,10 +1,10 @@
-﻿@model IEnumerable<ProductViewModel>
+﻿@model IEnumerable<Storage.Models.Product>
 
 @{
-    ViewData["Title"] = "Index2";
+    ViewData["Title"] = "IndexDef";
 }
 
-<h1>Index2</h1>
+<h1>IndexDef</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,10 +19,16 @@
                 @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelf)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Count)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.InventoryValue)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th></th>
         </tr>
@@ -37,10 +43,16 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shelf)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Count)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.InventoryValue)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

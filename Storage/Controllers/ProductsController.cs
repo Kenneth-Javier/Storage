@@ -26,7 +26,7 @@ namespace Storage.Controllers
         //}
         
         // GET: Products
-        public async Task<IActionResult> Index2()
+        public async Task<IActionResult> Index()
         {
             var model = db.Product.Select(p => new ProductViewModel
             {
@@ -36,7 +36,7 @@ namespace Storage.Controllers
                 Count = p.Count,
                 InventoryValue = p.Price * p.Count
             });
-            return View("Index2",await model.ToListAsync());
+            return View("Index",await model.ToListAsync());
         }
 
         // GET: Products/Details/5
